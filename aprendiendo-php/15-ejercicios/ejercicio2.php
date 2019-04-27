@@ -65,7 +65,5 @@
         <?php include_once 'ejercicio5/primera.php';?>
         <?php include_once 'ejercicio5/segunda.php';?>
         <?php include_once 'ejercicio5/tercera.php';?>
-                
-        
     </table>
 
