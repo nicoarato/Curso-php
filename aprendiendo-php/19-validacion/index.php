@@ -15,6 +15,21 @@
             if($error == 'faltan_datos'){
                 echo '<strong style="color:red">Introduce todos los datos del formulario</strong>';
             }
+            if($error == 'nombre'){
+                echo '<strong style="color:red">Introduce un NOMBRE válido</strong>';
+            }
+            if($error == 'apellido'){
+                echo '<strong style="color:red">Introduce un Apellido válido</strong>';
+            }
+            if($error == 'edad'){
+                echo '<strong style="color:red">Introduce una EDAD válida</strong>';
+            }
+            if($error == 'email'){
+                echo '<strong style="color:red">Introduce un EMAIL válido</strong>';
+            }
+            if($error == 'password'){
+                echo '<strong style="color:red">Introduce una PASSWORD válido</strong>';
+            }
         }
     ?>
     <form action="procesar_formulario.php" method="POST">
@@ -38,7 +53,7 @@
         
         <div>
             <label for="pass">Contraseña:</label>
-            <input type="password" name="pass" required="required">
+            <input type="password" name="pass" required="required" minlength="5">
         </div>
         <div>
             <input type="submit" value="Enviar">
