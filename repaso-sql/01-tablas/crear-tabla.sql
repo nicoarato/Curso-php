@@ -25,9 +25,10 @@ BIGINT
 /*crear una tabla*/
 
 CREATE TABLE usuarios (
-    id  int(11),
-    nombre VARCHAR(100),
-    apellido VARCHAR(255),
-    email   VARCHAR(100),
-    password VARCHAR(255)
+    id  int(11) auto_increment NOT NULL ,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(255) default 'sin apellido',
+    email   VARCHAR(100) NOT NULL,
+    password VARCHAR(255),
+    CONSTRAINT pk_usuarios PRIMARY KEY(id)
 );
