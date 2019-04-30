@@ -17,3 +17,7 @@ ALTER TABLE usuarios_renom ADD website VARCHAR(100) null;
 # añadir restricción a columna
 
 ALTER TABLE usuarios_renom ADD CONSTRAINT uq_email UNIQUE(email);
+
+#borrar una columna
+
+ALTER TABLE usuarios_renom DROP website;
