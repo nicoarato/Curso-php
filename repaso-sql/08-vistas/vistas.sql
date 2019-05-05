@@ -18,6 +18,7 @@ INNER JOIN categorias c ON e.categoria_id = c.id ;
 /*
 estas vistas se pueden operar como tablas.
 
+select * from entradas_con_nombres where ....
 */
 
 DROP view entradas_con_nombres;
