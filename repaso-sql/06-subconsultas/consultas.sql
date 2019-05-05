@@ -37,7 +37,9 @@ SELECT * from usuarios where id in
 
 #mostrar el nombre del usuario que tenga más entradas.
 
-select nombre from usuarios where id IN
-    (SELECT usuario_id, count(id) from entradas group by usuario_id order by count(id) desc limit 2);
+select nombre from usuarios where id IN (SELECT usuario_id from entradas group by usuario_id order by count(id) desc limit 2);
 
 #mostrar las categorias sin entradas
+
+insert into categorias VALUES(null, 'Plataformas');
+SELECT * from categorias WHERE id NOT IN (select categoria_id from entradas);
