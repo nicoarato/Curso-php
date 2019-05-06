@@ -112,6 +112,7 @@ INSERT INTO clientes VALUES(null, 1,'Jesus Colchones Inc', 'El Prat',96000, curd
 INSERT INTO clientes VALUES(null, 1,'Bar Pepe Inc', 'Valencia',170000, curdate());
 INSERT INTO clientes VALUES(null, 1,'Tienda Inc', 'Murcia',245000, curdate());
 
+
 #encargos
 
 INSERT INTO encargos VALUES(null, 1, 1 , 2, curdate());
