@@ -17,6 +17,10 @@ SELECT * from coches where id IN
 (SELECT max(cantidad) from encargos));
 
 
-SELECT c.modelo, sum(e.cantidad) from encargos e
+SELECT c.modelo, sum(e.cantidad) as 'Cantidad vendida' from encargos e
 inner join coches c ON e.coche_id=c.id
+group by 1 order by 2 desc limit 1;
+
+SELECT c.modelo, sum(e.cantidad) as 'Cantidad vendida' from encargos e
+right join coches c ON e.coche_id=c.id
 group by 1;
