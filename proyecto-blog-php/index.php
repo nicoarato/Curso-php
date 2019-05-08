@@ -37,7 +37,7 @@
                 <h3>Entrar a la web</h3>
                 <form action="login.php" method="POST" id="login">
                     <label for="email">Email:</label>
-                    <input type="emal" name="email" >
+                    <input type="email" name="email" >
                     <label for="pass">Contraseña:</label>
                     <input type="password" name="pass" >
                     <input type="submit" value="Entrar">
@@ -45,16 +45,16 @@
             </div>
 
             <div id="register" class="block-aside">
-                <h3>Registrarse</h3>
+                <h3>Registrate</h3>
                 <form action="login.php" method="POST" id="login">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" name="usuario" >
+                    <input type="text" name="nombre" >
 
                     <label for="apellido">Apellido:</label>
                     <input type="text" name="apellido" >
 
                     <label for="email">Email:</label>
-                    <input type="emal" name="email" >
+                    <input type="email" name="email" >
 
                     <label for="pass">Contraseña:</label>
                     <input type="password" name="pass" >
@@ -96,7 +96,7 @@
                 </a>
             </article>
             <div id="ver-todas">
-                <a href="">Ver Todas</a>
+                <a href="">Ver todas las entradas</a>
             </div>
         </div>
         <div class="clearfix"></div>
