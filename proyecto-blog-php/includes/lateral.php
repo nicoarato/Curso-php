@@ -1,4 +1,4 @@
-<?php include_once 'includes/helpers.php'; ?>
+
 <!--barra lateral-->
 <aside id="sidebar">
         <?php if(isset($_SESSION['usuario'])): ?>
@@ -6,6 +6,7 @@
                 <h3><?= $_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellido'] ; ?></h3>
                 <!--Botones-->
                 <a href="logout.php" class="boton">Crear un entrada</a>
+                <a href="logout.php" class="boton">Crear categoría</a>
                 <a href="logout.php" class="boton">Mis datos</a>
                 <a href="logout.php" class="boton">Cerrar sesión</a>
             </div>
