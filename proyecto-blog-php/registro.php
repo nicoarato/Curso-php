@@ -1,15 +1,23 @@
 <?php
-session_start();
+
+
 
 //array de errores
 $errores = array();
 
 if(isset($_POST['submit'])){
+    require_once 'includes/conexion.php';
     
-    $nombre= isset($_POST['nombre']) ? $_POST['nombre'] : false;
-    $apellido= isset($_POST['apellido']) ? $_POST['apellido'] : false;
-    $email= isset($_POST['email']) ? $_POST['email'] : false;
-    $password= isset($_POST['password']) ? $_POST['password'] : false;
+    if(!isset($_SESSION)){
+        session_start();
+    }
+
+    //mysqli_real_escape_string escapa las comillas evitando hackeos
+
+    $nombre= isset($_POST['nombre']) ? mysqli_real_escape_string($db, $_POST['nombre']) : false;
+    $apellido= isset($_POST['apellido']) ?  mysqli_real_escape_string($db, $_POST['apellido']) : false;
+    $email= isset($_POST['email']) ?  mysqli_real_escape_string($db, $_POST['email']) : false;
+    $password= isset($_POST['password']) ?  mysqli_real_escape_string($db, $_POST['password']) : false;
     
     //var_dump($_POST);
 
@@ -50,14 +58,36 @@ if(isset($_POST['submit'])){
         $errores['password'] = "El password es inválido";
     }
 
-    //var_dump($errores);
+    
 
     $guardar_usuario=false;
     if(count($errores) == 0){
-        //insertar usuaio en la bdatos en la tabla correspondiente
         $guardar_usuario=true;
+        //cifrar contraseña
+        $password_segura = password_hash($password, PASSWORD_BCRYPT, ['cost'=>4]);
+       /*  var_dump($password);
+        var_dump($password_segura);
+
+        var_dump(password_verify($password, $password_segura));
+        die(); */
+
+
+        //insertar usuaio en la bdatos en la tabla correspondiente
+        $sql = "INSERT INTO usuarios VALUES(null,'$nombre','$apellido','$email','$password_segura', curdate());";
+        $guardar = mysqli_query($db, $sql);
+
+        // COMO VER EL ERROR AL INSERTAR
+        /* var_dump(mysqli_error($db));
+        die(); */
+
+        if($guardar){
+            $_SESSION['completado'] = "El registro se ha completado con éxito";
+        }else{
+            $_SESSION['errores']['general'] = "Fallo al guardar el usuario!!!!";
+        }
+        
     }else{
         $_SESSION['errores'] = $errores;
-        header('Location: index.php');
     }
 }
+header('Location: index.php');
