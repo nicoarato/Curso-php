@@ -13,6 +13,8 @@ $db = mysqli_connect($servidor, $username, $password, $database);
 
 mysqli_query($db, "SET NAMES 'utf8'");
 
+/* iniciar la session*/
+session_start();
 
 
 ?>
