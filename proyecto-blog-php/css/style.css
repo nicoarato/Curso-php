@@ -172,19 +172,25 @@ input[type="password"]{
 }
 
 input[type="button"],
-input[type="submit"]{
+input[type="submit"],
+.boton{
     margin-top: 5px;
     margin-bottom: 5px;
     display: block;
     border-radius: 2px;
-    padding: 1.5rem;
+    /*padding: 1.5rem;*/
     color: white;
     background: #777ee5;
     border: 1px solid #156785;
     cursor: pointer;
     padding: 5px 3px;
+    font-size: 1.4rem
 }
 
+.boton{
+    text-align: center;
+    width: 13rem;
+}
 
 /*Principal*/
 

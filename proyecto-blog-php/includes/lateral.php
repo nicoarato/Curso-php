@@ -1,13 +1,33 @@
 <?php include_once 'includes/helpers.php'; ?>
 <!--barra lateral-->
 <aside id="sidebar">
+        <?php if(isset($_SESSION['usuario'])): ?>
+            <div id="usuario-logueado" class="block-aside">
+                <h3><?= $_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellido'] ; ?></h3>
+                <!--Botones-->
+                <a href="logout.php" class="boton">Crear un entrada</a>
+                <a href="logout.php" class="boton">Mis datos</a>
+                <a href="logout.php" class="boton">Cerrar sesión</a>
+            </div>
+
+        <?php endif; ?>
             <div id="login" class="block-aside">
-                <h3>Entrar a la web</h3>
+                <h3>Identificate</h3>
+
+                <?php if(isset($_SESSION['error_login'])): ?>
+                     <div class="alerta alerta-error">
+                         <h3><?= $_SESSION['error_login'];?></h3>
+                    
+
+                     </div>
+
+                 <?php endif; ?>
+
                 <form action="login.php" method="POST" id="login">
                     <label for="email">Email:</label>
                     <input type="email" name="email" >
-                    <label for="pass">Contraseña:</label>
-                    <input type="password" name="pass" >
+                    <label for="password">Contraseña:</label>
+                    <input type="password" name="password" >
                     <input type="submit" value="Entrar">
                 </form>
             </div>
