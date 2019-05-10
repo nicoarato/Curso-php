@@ -18,6 +18,11 @@ function borrarErrores(){
         $resultado = session_unset();
     }
     
+    if(isset($_SESSION['errores_entrada'])){ //setea errores que se muestran al insertar entradas
+        $_SESSION['errores_entrada'] = null;
+       
+    }
+
     if(isset($_SESSION['completado'])){
         $_SESSION['completado'] = null;
         session_unset();
