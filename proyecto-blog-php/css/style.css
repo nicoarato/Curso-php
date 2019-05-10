@@ -209,6 +209,7 @@ input[type="submit"],
     margin-left: 2rem;
     padding: 2rem;
     overflow: hidden;
+    font-size: 1.4rem;
 
 }
 
@@ -231,6 +232,12 @@ input[type="submit"],
 
 #principal p{
     margin-top: 0.8rem;
+}
+
+.fecha{
+    color: #4e4e4e;
+    margin-top: 5px;
+    font-size: 1.4rem;
 }
 
 #ver-todas a{

@@ -12,6 +12,7 @@
             </div>
 
         <?php endif; ?>
+        <?php if(!isset($_SESSION['usuario'])): ?>
             <div id="login" class="block-aside">
                 <h3>Identificate</h3>
 
@@ -71,4 +72,5 @@
                 </form>
                 <?php borrarErrores(); ?>
             </div>
+            <?php endif; ?>
         </aside>
