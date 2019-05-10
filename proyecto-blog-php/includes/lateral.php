@@ -6,7 +6,7 @@
                 <h3><?= $_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellido'] ; ?></h3>
                 <!--Botones-->
                 <a href="logout.php" class="boton">Crear un entrada</a>
-                <a href="logout.php" class="boton">Crear categoría</a>
+                <a href="crear-categoria.php" class="boton">Crear categoría</a>
                 <a href="logout.php" class="boton">Mis datos</a>
                 <a href="logout.php" class="boton">Cerrar sesión</a>
             </div>
