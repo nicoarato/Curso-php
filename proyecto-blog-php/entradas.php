@@ -6,10 +6,10 @@
     
          <!--Contenido principal-->
         <div id="principal">
-            <h1>Ultimas entradas</h1>
+            <h1>Todas las  entradas</h1>
 
             <?php
-                $entradas = conseguirUltimasEntradas($db);
+                $entradas = conseguirTodasEntradas($db);
                 if(!empty($entradas)):
                     while($entrada = mysqli_fetch_assoc($entradas)):
                     
@@ -31,9 +31,7 @@
             ?>
         
             
-            <div id="ver-todas">
-                <a href="entradas.php">Ver todas las entradas</a>
-            </div>
+            
         </div> <!--principal-->
        
     
