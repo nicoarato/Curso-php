@@ -15,17 +15,17 @@ function borrarErrores(){
     $resultado = false;
     if(isset($_SESSION['errores'])){
         $_SESSION['errores'] = null;
-        $resultado = session_unset();
+        $resultado = true;
     }
     
     if(isset($_SESSION['errores_entrada'])){ //setea errores que se muestran al insertar entradas
         $_SESSION['errores_entrada'] = null;
-       
+        $resultado = true;
     }
 
     if(isset($_SESSION['completado'])){
         $_SESSION['completado'] = null;
-        session_unset();
+        $resultado = true;
     }
     return $resultado;
 }
