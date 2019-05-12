@@ -17,7 +17,7 @@
             <?php// var_dump($entrada);?>
             <?php //die();?>
             <article class="entradas">
-                <a href="">
+                <a href="entrada.php?id=<?=$entrada['id'];?>">
                     <h2><?=$entrada['titulo'];?></h2>
                     <span class="fecha"><?=$entrada['categoria'] . ' | ' .$entrada['fecha'] ;?></span>
                     <p>

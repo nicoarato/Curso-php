@@ -21,13 +21,13 @@
 
             <?php
                 $entradas = conseguirEntradas($db,null,$_GET['id']);
-                if(!empty($entradas) && mysqli_num_rows($entradas)):
+                if(!empty($entradas) && mysqli_num_rows($entradas)>0):
                     while($entrada = mysqli_fetch_assoc($entradas)):
                     
             ?>
             
             <article class="entradas">
-                <a href="">
+                <a href="entrada.php?id=<?=$entrada['id'];?>">
                     <h2><?=$entrada['titulo'];?></h2>
                     <span class="fecha"><?=$entrada['categoria'] . ' | ' .$entrada['fecha'] ;?></span>
                     <p>
