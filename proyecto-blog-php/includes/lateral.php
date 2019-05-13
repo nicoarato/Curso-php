@@ -1,6 +1,23 @@
 
 <!--barra lateral-->
 <aside id="sidebar">
+
+        <div id="Buscador" class="block-aside">
+            <h3>Buscar</h3>
+
+            <?php if(isset($_SESSION['error_login'])): ?>
+                <div class="alerta alerta-error">
+                    <h3><?= $_SESSION['error_login'];?></h3>
+                </div>
+            <?php endif; ?>
+
+            <form action="buscar.php" method="POST" id="login">
+                
+                <input type="text" name="busqueda" >
+                <input type="submit" value="Buscar">
+            </form>
+        </div>
+
         <?php if(isset($_SESSION['usuario'])): ?>
             <div id="usuario-logueado" class="block-aside">
                 <h3><?= $_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellido'] ; ?></h3>
