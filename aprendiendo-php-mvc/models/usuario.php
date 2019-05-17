@@ -7,6 +7,12 @@ class Usuario extends ModeloBase{
     public $email;
     public $password;
 
+    public function __construct(){
+        parent::__construct(); //acceso a db para consultas
+    }
+
+
+
     public function setNombre($nombre){
         $this->nombre=$nombre;
     }

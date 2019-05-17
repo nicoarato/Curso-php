@@ -3,8 +3,9 @@
 <h2>Controlador Frontal</h2>
 <?php 
 
-require_once 'controllers/usuario.php';
-require_once 'controllers/nota.php';
+require_once 'autoload.php';
+/* require_once 'controllers/usuario.php';
+require_once 'controllers/nota.php' */;
 
 //verifico si existe la clase controlador
 /*  echo $_GET['controller'] . 'Controller';
