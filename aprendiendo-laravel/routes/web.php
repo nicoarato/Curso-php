@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/peliculas/{pagina?}', 'PeliculaController@index');
+Route::get('/detalle', 'PeliculaController@detalle');
+
+Route::resource('usuario','UsuarioController');
+
+
 /*
 GET conseguir datos
 POST para guardar datos
@@ -23,7 +30,7 @@ DELETE Eliminar recursos
 
 
 */
-
+/*
 Route::get('/mostrar-fecha',function(){
 	$titulo = "Esta es la Fecha";
 	return view('mostrar-fecha', array(
@@ -38,7 +45,7 @@ Route::get('/pelicula/{titulo?}',function($titulo="No hay pelicula seleccionada"
 				));
 	
 });
-*/
+
 
 Route::get('/pelicula/{titulo}/{year?}',function($titulo="No hay pelicula seleccionada", $year=2019){
 	return view('pelicula', array(
@@ -64,3 +71,4 @@ Route::get('/pagina-generica',function(){
 
 	return view('pagina');
 });
+*/
