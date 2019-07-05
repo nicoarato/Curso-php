@@ -36,7 +36,8 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        echo "STORE()";
+        die();
     }
 
     /**

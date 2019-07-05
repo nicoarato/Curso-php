@@ -17,7 +17,11 @@ Route::get('/', function () {
 
 
 Route::get('/peliculas/{pagina?}', 'PeliculaController@index');
-Route::get('/detalle', 'PeliculaController@detalle');
+
+Route::get('/detalle', [
+			'uses' => 'PeliculaController@detalle',
+		'as' => 'detalle.pelicula'
+]);
 
 Route::resource('usuario','UsuarioController');
 
