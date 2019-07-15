@@ -29,6 +29,12 @@ Route::resource('usuario','UsuarioController');
 Route::get('/redirigir', 'PeliculaController@redirigir');
 Route::get('/redirigir2', 'PeliculaController@redirigir2');
 Route::get('/redirigir3', 'PeliculaController@redirigir3');
+Route::get('/redirigir3', 'PeliculaController@redirigir3');
+Route::get('/formulario', 'PeliculaController@formulario');
+
+Route::post('/recibir', 'PeliculaController@recibir');
+
+
 
 /*
 GET conseguir datos

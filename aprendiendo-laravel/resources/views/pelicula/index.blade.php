@@ -9,3 +9,5 @@
 <a href="{{ action('PeliculaController@detalle') }}">Ir al detalle con action</a>
 <br>
 <a href="{{ route('detalle.pelicula') }}">Ir al detalle con route</a>
+<br>  
+<a href="{{ action('PeliculaController@formulario') }}">Ir al formulario</a>
