@@ -35,6 +35,11 @@ Route::get('/formulario', 'PeliculaController@formulario');
 Route::post('/recibir', 'PeliculaController@recibir');
 
 
+Route::group(['prefix' => 'frutas'], function(){
+    Route::get('/index', 'FrutaController@index');
+    Route::get('/detail/{id}', 'FrutaController@detail');
+});
+
 
 /*
 GET conseguir datos
