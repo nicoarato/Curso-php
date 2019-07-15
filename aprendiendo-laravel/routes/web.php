@@ -18,13 +18,17 @@ Route::get('/', function () {
 
 Route::get('/peliculas/{pagina?}', 'PeliculaController@index');
 
-Route::get('/detalle', [
-			'uses' => 'PeliculaController@detalle',
+Route::get('/detalle/{year?}', [
+                'middleware' => 'testyear',
+		'uses' => 'PeliculaController@detalle',
 		'as' => 'detalle.pelicula'
 ]);
 
 Route::resource('usuario','UsuarioController');
 
+Route::get('/redirigir', 'PeliculaController@redirigir');
+Route::get('/redirigir2', 'PeliculaController@redirigir2');
+Route::get('/redirigir3', 'PeliculaController@redirigir3');
 
 /*
 GET conseguir datos

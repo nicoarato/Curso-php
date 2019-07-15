@@ -24,7 +24,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        echo 'CREA TE()';
+        echo 'CREATE()';
         die();
     }
 
