@@ -1,4 +1,15 @@
 <h1>Listado de frutas</h1>
+<h2> 
+    <a href="{{action('FrutaController@create')}}" >Crear frutas </a>
+</h2>
+
+@if(session('status'))
+    <p style="background: green; color:white">
+       {{ session('status') }}
+    </p>
+
+@endif
+
 
 <ul>
     @foreach($frutas as $fruta)
