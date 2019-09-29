@@ -20,7 +20,7 @@ class Image extends Model
     }
     
     //relacion *..1
-    public function images(){
+    public function user(){
         return $this->belongsTo('App\User', 'user_id');
     }
 }
