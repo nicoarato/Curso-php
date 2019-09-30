@@ -11,10 +11,10 @@
 |
 */
 
-use App\Image;
+//use App\Image;
 
 Route::get('/', function () {
-
+/*
     $images = Image::all();
     
     foreach ($images as $image){
@@ -33,5 +33,10 @@ Route::get('/', function () {
     }
 
     die();
+ */
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
