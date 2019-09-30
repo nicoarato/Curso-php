@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -54,6 +55,11 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#"> Subir imagen</a>
+                            </li>
+                            <li class="nav-item">
+                                <div class="container-avatar">
+                                    @include('includes.avatar')
+                                </div>
                             </li>
 
 
