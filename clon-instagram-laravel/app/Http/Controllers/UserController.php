@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File; //para el objeto storage
 class UserController extends Controller
 {
     
-     public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
