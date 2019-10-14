@@ -33,13 +33,18 @@ form .avatar{
     line-height: 35px;
 }
 
+.pub_image .data-user a{
+    color: #444;
+}
+
 .pub_image .nickname{
     color: gray;
 }
 
 .image-container{
     width: 100%;
-    max-height: 400px;
+    height: 100%;
+    /* max-height: 400px;*/
     overflow: hidden;
 }
 
