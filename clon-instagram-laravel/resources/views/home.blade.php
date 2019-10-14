@@ -13,11 +13,11 @@
                         <img class="avatar" src="{{ route('user.avatar',['filename' => $image->user->image]) }}">
                     </div>
                     @endif
-                    
+
                     <div class="data-user">
                         {{$image->user->name.' '.$image->user->surname}}
                         <span class="nickname">
-                             {{  ' | @'.$image->user->nick }}
+                            {{  ' | @'.$image->user->nick }}
                         </span>
                     </div>
                 </div>
@@ -26,24 +26,28 @@
                     <div class="image-container">
                         <img src="{{ route('image.file', ['filename' => $image->image_path]) }}">
                     </div>
-                    
-                    <div class="likes">
-                        
-                    </div>
-                    
+
                     <div class="description">
                         <span class="nickname">{{'@'. $image->user->nick}}</span>
                         <p> {{$image->description}}</p>
                     </div>
-                   
+                    
+                    <div class="likes">
+                        <img src="{{ asset('img/heart-gris.png')}}">
+                    </div>
+                    
+                    <a href="#" class="btn btn-warning btn-comments">
+                        Comentarios
+                    </a>
+
                 </div>
             </div>
             @endforeach
             <!--paginacion-->
-        <div class="clearfix"></div>
-        {{ $images->links()}}
+            <div class="clearfix"></div>
+            {{ $images->links()}}
         </div>
-        
+
     </div>
 </div>
 @endsection
