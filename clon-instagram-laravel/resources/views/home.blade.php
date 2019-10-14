@@ -39,7 +39,11 @@
                 </div>
             </div>
             @endforeach
+            <!--paginacion-->
+        <div class="clearfix"></div>
+        {{ $images->links()}}
         </div>
+        
     </div>
 </div>
 @endsection
