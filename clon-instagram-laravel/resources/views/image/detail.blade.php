@@ -70,7 +70,14 @@
                             <span class="nickname">
                                 {{  ' | '. FormatTime::LongTimeFilter($comment->created_at) }}
                             </span>
-                            <p> {{$comment->content}}</p>
+                            <p> {{$comment->content}}
+                            <br>
+                            @if(Auth::check() && (Auth::user()->id == $comment->user_id || $comment->image->user_id == Auth::user()->id))
+                                <a href="{{ route('comment.delete', ['id' => $comment->id]) }} " class="btn btn-sm btn-danger">
+                                    Eliminar
+                                </a>
+                            @endif
+                            </p>
                         </div>
                         @endforeach
                     </div>
