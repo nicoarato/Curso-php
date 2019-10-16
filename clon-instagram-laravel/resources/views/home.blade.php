@@ -41,8 +41,10 @@
                         <p> {{$image->description}}</p>
                     </div>
 
-                    <div class="likes">
-                        <img src="{{ asset('img/heart-gris.png')}}">
+                    <div class="likes ">
+                        {{ var_dump($image->likes) }}
+                        <img src="{{ asset('img/heart-gris.png')}}" class="btn-like">
+                        <img src="{{ asset('img/heart-rojo.png')}}" class="btn-dislike">
                     </div>
 
                     <a href="#" class="btn btn-sm btn-warning btn-comments">

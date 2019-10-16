@@ -49,4 +49,5 @@ Route::get('/image/file/{filename}', 'ImageController@getImage')->name('image.fi
 Route::get('/image/{id}', 'ImageController@detail')->name('image.detail');
 Route::post('/comment/save', 'CommentController@save')->name('comment.save');
 Route::get('/comment/{id}', 'CommentController@delete')->name('comment.delete');
-Route::post('/like/{image_id}', 'LikeController@like')->name('like.save');
+Route::get('/like/{image_id}', 'LikeController@like')->name('like.save');
+Route::get('/dislike/{image_id}', 'LikeController@dislike')->name('like.delete');
