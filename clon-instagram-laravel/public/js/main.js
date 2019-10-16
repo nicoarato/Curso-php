@@ -1,3 +1,5 @@
+var url = 'http://localhost/master-php/clon-instagram-laravel/public';
+
 window.addEventListener("load", function(){
    
    $('.btn-like').css('cursor','pointer');
@@ -9,9 +11,21 @@ window.addEventListener("load", function(){
         console.log('like');
         $(this).addClass('btn-dislike').removeClass('btn-like');
         $(this).attr('src','img/heart-rojo.png');
+        
+        $.ajax({
+            url: url+'/like/'+$(this).data('id'),
+            type: 'GET',
+            success: function(response){
+                if(response.like){
+                    console.log('Has dado like.');
+                }else{
+                    console.log('Error de like.');
+                }
+            }
+        });
         dislike();
     });
-    
+   
    }
    like();
    
@@ -21,6 +35,19 @@ window.addEventListener("load", function(){
         console.log('dislike');
         $(this).addClass('btn-like').removeClass('btn-dislike');
         $(this).attr('src','img/heart-gris.png');
+        
+        $.ajax({
+            url: url+'/dislike/'+$(this).data('id'),
+            type: 'GET',
+            success: function(response){
+                if(response.like){
+                    console.log('Has dado dislike.');
+                }else{
+                    console.log('Error de dislike.');
+                }
+            }
+        });
+        
         like();
     });
     
