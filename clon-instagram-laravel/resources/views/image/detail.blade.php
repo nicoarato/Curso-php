@@ -47,46 +47,46 @@
                         @endforeach
 
                         @if($user_like)
-                        <img src="{{ asset('img/heart-rojo.png')}}" data-id="{{$image->id}}" class="btn-dislike">
+                            <img src="{{ asset('img/heart-rojo.png')}}" data-id="{{$image->id}}" class="btn-dislike">
                         @else
-                        <img src="{{ asset('img/heart-gris.png')}}" data-id="{{$image->id}}" class="btn-like">
+                            <img src="{{ asset('img/heart-gris.png')}}" data-id="{{$image->id}}" class="btn-like">
                         @endif
-                        <span class="number_likes" >
-                            {{ count($image->likes) }}
-                        </span>
+                            <span class="number_likes" >
+                                {{ count($image->likes) }}
+                            </span>
 
                     </div>
 
                     @if(Auth::user() && Auth::user()->id == $image->user->id)
                     <div class="actions">
-                        <a href="" class="btn btn-primary">
+                        <a href=" {{ route('image.edit',['id' => $image->id ])}} " class="btn btn-primary">
                             Actualizar
-                        </a>
-                      
-                        <!-- Button to Open the Modal -->
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-                            Borrar imagen
-                        </button>
+                             </a>
 
-                        <!-- The Modal -->
-                        <div class="modal" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
+                                                                <!-- Button to Open the Modal -->
+                                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                                                                    Borrar imagen
+                                                                </button>
 
-                                    <!-- Modal Header -->
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">¿¿Estas seguro??</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
+                                     <!-- The Modal -->
+                                                                <div class="modal" id="myModal">
+                                                                    <div class="modal-dialog">
+                                                                        <div class="modal-content">
 
-                                    <!-- Modal body -->
-                                    <div class="modal-body">
-                                        Estas seguro que quieres eliminar esta imagen??
-                                    </div>
+                          <!-- Modal Header -->
+                                                                            <div class="modal-header">
+                                                                          <h4 class="modal-title">¿¿Estas seguro??</h4>
+                                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                            </div>
 
-                                    <!-- Modal footer -->
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
+                                                                            <!-- Modal body -->
+                                                                            <div class="modal-body">
+                       Estas seguro que quieres eliminar esta imagen??
+ </div>
+
+                      <!-- Modal footer -->
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
                                         <a href="{{ route('image.delete', ['id' => $image->id]) }}" class="btn btn-danger">
                                             Borrar
                                         </a>
@@ -109,43 +109,43 @@
                         <form method="POST" action="{{ route('comment.save') }}">
                             @csrf
 
-                            <input type="hidden" name="image_id" value='{{$image->id}}'>
-                            <textarea class="form-control {{ $errors->has('content') ? 'is-invalid' : ''}} " name="content" required></textarea>
-                            @if($errors->has('content'))
-                            <span class="invalid-feedback alert-danger" role="alert">
-                                <strong> {{ $errors->first('content') }}</strong>
-                            </span>
-                            @endif
-                            <button type="submit" class="btn btn-success">
-                                Enviar
-                            </button>
-                        </form>
-                        <hr>
-                        @foreach ($image->comments as $comment)
-                        <div class="comment">
-                            <span class="nickname">
-                                {{'@'. $comment->user->nick}}
-                            </span>
-                            <span class="nickname">
-                                {{  ' | '. FormatTime::LongTimeFilter($comment->created_at) }}
-                            </span>
-                            <p> {{$comment->content}}
-                                <br>
-                                @if(Auth::check() && (Auth::user()->id == $comment->user_id || $comment->image->user_id == Auth::user()->id))
-                                <a href="{{ route('comment.delete', ['id' => $comment->id]) }} " class="btn btn-sm btn-danger">
-                                    Eliminar
-                                </a>
-                                @endif
-                            </p>
-                        </div>
-                        @endforeach
-                    </div>
+                                                                    <input type="hidden" name="image_id" value='{{$image->id}}'>
+                                                                                                    <textarea class="form-control {{ $errors->has('content') ? 'is-invalid' : ''}} " name="content" required></textarea>
+                                                                                                    @if($errors->has('content'))
+                                                                                                    <span class="invalid-feedback alert-danger" role="alert">
+                                                                                                        <strong> {{ $errors->first('content') }}</strong>
+                                                                                                    </span>
+                                                                                                    @endif
+                                                                                                    <button type="submit" class="btn btn-success">
+                                                                                                        Enviar
+                                                                                                    </button>
+                                                                                                    </form>
+                                                                                                    <hr>
+                                                                                                    @foreach ($image->comments as $comment)
+                                                                                                    <div class="comment">
+                                                                                                        <span class="nickname">
+                                                                                                            {{'@'. $comment->user->nick}}
+                                                                                                        </span>
+                                                                                                        <span class="nickname">
+                                                                                                            {{  ' | '. FormatTime::LongTimeFilter($comment->created_at) }}
+                                                                                                        </span>
+                                                                                                        <p> {{$comment->content}}
+                                                                                                            <br>
+                                                                                                            @if(Auth::check() && (Auth::user()->id == $comment->user_id || $comment->image->user_id == Auth::user()->id))
+                                                                                                            <a href="{{ route('comment.delete', ['id' => $comment->id]) }} " class="btn btn-sm btn-danger">
+                                                                                                                Eliminar
+                                                                                                            </a>
+                                                                                                            @endif
+                                                                                                        </p>
+                                                                                                    </div>
+                                                                                                    @endforeach
+                                                                                            </div>
 
-                </div>
-            </div>
+                                                                                        </div>
+                                                                                    </div>
 
-        </div>
+                                                                                </div>
 
-    </div>
-</div>
-@endsection
+                                                                            </div>
+                                                                        </div>
+                                                                        @endsection
