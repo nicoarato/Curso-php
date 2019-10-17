@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             @include('includes.message')
-            
+
             <div class="card pub_image pub_image_detail">
                 <div class="card-header">
                     @if($image->user->image)
@@ -26,7 +26,7 @@
                     <div class="image-container">
                         <img src="{{ route('image.file', ['filename' => $image->image_path]) }}">
                     </div>
-                    
+
                     <div class="description">
                         <span class="nickname">
                             {{'@'. $image->user->nick}}
@@ -36,28 +36,71 @@
                         </span>
                         <p> {{$image->description}}</p>
                     </div>
-                    
+
                     <div class="likes ">
-                        
+
                         <?php $user_like = false; ?>
                         @foreach($image->likes as $like)
-                            @if($like->user->id == Auth::user()->id)
-                                <?php $user_like = true; ?>
-                            @endif
+                        @if($like->user->id == Auth::user()->id)
+                        <?php $user_like = true; ?>
+                        @endif
                         @endforeach
-                        
+
                         @if($user_like)
-                            <img src="{{ asset('img/heart-rojo.png')}}" data-id="{{$image->id}}" class="btn-dislike">
+                        <img src="{{ asset('img/heart-rojo.png')}}" data-id="{{$image->id}}" class="btn-dislike">
                         @else
-                            <img src="{{ asset('img/heart-gris.png')}}" data-id="{{$image->id}}" class="btn-like">
+                        <img src="{{ asset('img/heart-gris.png')}}" data-id="{{$image->id}}" class="btn-like">
                         @endif
                         <span class="number_likes" >
                             {{ count($image->likes) }}
                         </span>
-                        
+
                     </div>
+
+                    @if(Auth::user() && Auth::user()->id == $image->user->id)
+                    <div class="actions">
+                        <a href="" class="btn btn-primary">
+                            Actualizar
+                        </a>
+                      
+                        <!-- Button to Open the Modal -->
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                            Borrar imagen
+                        </button>
+
+                        <!-- The Modal -->
+                        <div class="modal" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">¿¿Estas seguro??</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        Estas seguro que quieres eliminar esta imagen??
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
+                                        <a href="{{ route('image.delete', ['id' => $image->id]) }}" class="btn btn-danger">
+                                            Borrar
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    @endif
+
                     <div class="clearfix"></div>
-                    
+
                     <div class="comments">
                         <h2>
                             Comentarios ({{count($image->comments)}})
@@ -87,12 +130,12 @@
                                 {{  ' | '. FormatTime::LongTimeFilter($comment->created_at) }}
                             </span>
                             <p> {{$comment->content}}
-                            <br>
-                            @if(Auth::check() && (Auth::user()->id == $comment->user_id || $comment->image->user_id == Auth::user()->id))
+                                <br>
+                                @if(Auth::check() && (Auth::user()->id == $comment->user_id || $comment->image->user_id == Auth::user()->id))
                                 <a href="{{ route('comment.delete', ['id' => $comment->id]) }} " class="btn btn-sm btn-danger">
                                     Eliminar
                                 </a>
-                            @endif
+                                @endif
                             </p>
                         </div>
                         @endforeach
