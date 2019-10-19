@@ -95,3 +95,9 @@ form .avatar{
 .data-user .container-avatar img{
     height: 100%;
 }
+
+.form-group .btn-search{
+    padding-left: 0px;
+    margin-left: 0px;
+    
+}

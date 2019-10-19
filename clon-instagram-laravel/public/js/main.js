@@ -54,4 +54,14 @@ window.addEventListener("load", function(){
    }
    dislike();
    
+   //BUSCADOR
+   $('#buscador').submit(function(){
+      console.log($('#buscador #search').val());
+       $(this).attr('action', url+'/gente/'+$('#buscador #search').val());
+
+   });
+   
+   
+   
+   
 });
